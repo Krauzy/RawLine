@@ -1,0 +1,10 @@
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\bin\Debug\RawLine.exe.config
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\bin\Debug\RawLine.exe
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\bin\Debug\RawLine.pdb
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\obj\Debug\RawLine.csprojAssemblyReference.cache
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\obj\Debug\RawLine.FMain.resources
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\obj\Debug\RawLine.Properties.Resources.resources
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\obj\Debug\RawLine.csproj.GenerateResource.cache
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\obj\Debug\RawLine.csproj.CoreCompileInputs.cache
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\obj\Debug\RawLine.exe
+D:\Faculdade\6º Termo\CG\RawLine\RawLine\obj\Debug\RawLine.pdb

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawLine", "RawLine\RawLine.csproj", "{1BD3C0E2-C1DF-402B-A5D4-51628FEFEF5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BD3C0E2-C1DF-402B-A5D4-51628FEFEF5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD3C0E2-C1DF-402B-A5D4-51628FEFEF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD3C0E2-C1DF-402B-A5D4-51628FEFEF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD3C0E2-C1DF-402B-A5D4-51628FEFEF5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88CAB2E2-E291-459D-ACF2-390D1EEA6EBB}
+	EndGlobalSection
+EndGlobal
