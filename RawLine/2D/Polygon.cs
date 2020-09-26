@@ -23,14 +23,14 @@ namespace RawLine._2D
             this.vertices.Add(new Point(x, y));
         }
 
-        public Bitmap TerminatedPolygon(Bitmap img)
+        public Bitmap TerminatedPolygon(Bitmap img, Color cor)
         {
             img = DrawLine.DDA(img,
                 this.vertices[this.vertices.Count - 1].X,
                 this.vertices[this.vertices.Count - 1].Y,
                 this.vertices[0].X,
                 this.vertices[0].Y,
-                Color.Black);
+                cor);
             return img;
         }
 
@@ -43,12 +43,12 @@ namespace RawLine._2D
                     this.vertices[i + 1].X, 
                     this.vertices[i + 1].Y, 
                     cor);
-            return (terminated) ? this.TerminatedPolygon(img) : img;
+            return (terminated) ? this.TerminatedPolygon(img, cor) : img;
         }
 
         public override string ToString()
         {
-            return this.vertices.Count + " lados";
+            return this.GetHashCode() + " - " + this.vertices.Count + " lados";
         }
     }
 }
