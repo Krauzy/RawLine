@@ -42,43 +42,6 @@ namespace RawLine
             this.Active = rd.Text;
         }
 
-        private void btAbrir_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Title = "Abrir Imagem";
-            open.Filter = "Arquivos de Imagem (*.jpg;*.bmp;*.png;*.gif) | *.jpg;*.bmp;*.png;*.gif";
-            if(open.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    this.img = Image.FromFile(open.FileName);
-                    if(img.Width > picBox.Width || img.Height > picBox.Height)
-                    {
-                        if (MessageBox.Show("Imagem muito grande. Deseja comprimir o tamanho dela? \n(comprimir a imagem fará com que as posições dos pixels não sejam exatas)", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                        {
-                            picBox.Location = new Point(12, 12);
-                            picBox.Image = this.img;
-                            picBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                            btAbrir.Visible = false;
-                        }
-                    }
-                    else
-                    {
-                        int xres = (picBox.Width - img.Width) / 2;
-                        int yres = (picBox.Height - img.Height) / 2;
-                        picBox.Location = new Point(xres, yres);
-                        picBox.Image = this.img;
-                        picBox.SizeMode = PictureBoxSizeMode.AutoSize;
-                        btAbrir.Visible = false;
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Não foi possível carregar imagem!\n" + ex.Message, "Erro ao abrir imagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private void picBox_MouseMove(object sender, MouseEventArgs e)
         {
             if(picBox.Image != null)
@@ -126,7 +89,6 @@ namespace RawLine
                 img = b;
                 picBox.Image = img;
                 picBox.SizeMode = PictureBoxSizeMode.AutoSize;
-                btAbrir.Visible = false;
             }
             if(flag == false)
             {

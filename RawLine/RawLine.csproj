@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="2D\Graph.cs" />
+    <Compile Include="2D\Polygon.cs" />
     <Compile Include="Draws\DrawCircle.cs" />
     <Compile Include="Draws\DrawEllipse.cs" />
     <Compile Include="Draws\DrawLine.cs" />
@@ -84,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
