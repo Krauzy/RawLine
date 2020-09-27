@@ -21,6 +21,13 @@ namespace RawLine
         public FMain()
         {
             InitializeComponent();
+            Bitmap b = new Bitmap(picBox.Width, picBox.Height);
+            Graphics g = Graphics.FromImage(b);
+            g.Clear(Color.White);
+            img = b;
+            picBox.Image = img;
+            picBox.SizeMode = PictureBoxSizeMode.Zoom;
+            //
             flag = false;
             polyflag = false;
             polyfirst = true;
@@ -57,7 +64,6 @@ namespace RawLine
             if(polyflag == true && polyfirst == false)
             {
                 picBox.Image = DrawLine.DDA((Bitmap)img, point.X, point.Y, e.X, e.Y, Color.Black);
-                Console.WriteLine("entrou |" + e.X);
             }
             else
             {
@@ -99,17 +105,10 @@ namespace RawLine
 
         private void picBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if(picBox.Image == null)
-            {
-                Bitmap b = new Bitmap(picBox.Width, picBox.Height);
-                img = b;
-                picBox.Image = img;
-                picBox.SizeMode = PictureBoxSizeMode.AutoSize;
-            }
-
             if(e.Button == MouseButtons.Right)
             {
                 img = poly.ReDraw((Bitmap)img, Color.Black);
+                MessageBox.Show("" + poly.GetSeed());
                 picBox.Image = img;
                 polys.Add(poly);
                 polist.Items.Add(poly);
@@ -253,26 +252,13 @@ namespace RawLine
 
         private void slideEscala_Scroll(object sender, EventArgs e)
         {
-            int value = slideEscala.Value - 100;
-            int sig = 0;
-            if(value < 0)
-            {
-                if (Math.Abs(value) >= 10)
-                {
-                    if (Math.Abs(value) >= 100)
-                    {
-                        sig = 12;
-                    }
-                    else
-                        sig = 8;
-                }
-                else
-                    sig = 4;
-            }
-
-            Point loc = new Point(116 - sig, 19);
-            loc.X += value;
-            loc.X = (loc.X > 217) ? 217 : loc.X;
+            double value = (double)slideEscala.Value / 10;
+            int mov = slideEscala.Value - 10;
+            Point loc = new Point(54, 19);
+            loc.X += Convert.ToInt32(mov * 4);
+            if (value == 3.0 || value == 4.0 || value == 5.0)
+                loc.X += 5;
+            loc.X = (loc.X > 219) ? 219 : loc.X;
             txtValueEscala.Location = loc;
             txtValueEscala.Text = value.ToString();
         }
@@ -339,6 +325,47 @@ namespace RawLine
                 }
                 picBox.Image = img;
 
+            }
+        }
+
+        private void btFlood_Click(object sender, EventArgs e)
+        {
+            if(polist.SelectedItems.Count > 0)
+            {
+                img = polys[polist.SelectedIndex].FloodFill((Bitmap)img, Color.Blue, Color.Orange);
+                picBox.Image = img;
+            }
+        }
+
+        private void btEscala_Click(object sender, EventArgs e)
+        {
+            if(polist.SelectedItems.Count > 0)
+            {
+                double value = (double)slideEscala.Value / 10;
+                /*
+                img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
+                int desloc;
+                if (value >= 1)
+                    desloc = (int)value * -25;
+                else
+                    desloc = Convert.ToInt32((value + 1) * 100);
+                MessageBox.Show(desloc + "");
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue,  desloc);
+                */
+                img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
+                img = polys[polist.SelectedIndex].Scala((Bitmap)img, Color.Blue, value);
+                picBox.Image = img;
+            }
+        }
+
+        private void btTranslacao_Click(object sender, EventArgs e)
+        {
+            if(polist.SelectedItems.Count > 0)
+            {
+                int value = slideTransalacao.Value - 100;
+                img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, value);
+                picBox.Image = img;
             }
         }
     }

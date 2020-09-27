@@ -54,8 +54,7 @@
             this.txtValueEscala = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btEscala = new System.Windows.Forms.Button();
             this.slideEscala = new System.Windows.Forms.TrackBar();
             this.scrollBar = new System.Windows.Forms.VScrollBar();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -63,7 +62,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btTranslacao = new System.Windows.Forms.Button();
             this.slideTransalacao = new System.Windows.Forms.TrackBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.polist = new System.Windows.Forms.ListBox();
@@ -85,6 +84,9 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btFlood = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.gbRetas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -105,6 +107,7 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // picBox
@@ -343,14 +346,15 @@
             // 
             // pnScroll
             // 
+            this.pnScroll.Controls.Add(this.groupBox8);
             this.pnScroll.Controls.Add(this.groupBox7);
             this.pnScroll.Controls.Add(this.groupBox6);
             this.pnScroll.Controls.Add(this.groupBox5);
             this.pnScroll.Controls.Add(this.groupBox4);
             this.pnScroll.Controls.Add(this.groupBox3);
-            this.pnScroll.Location = new System.Drawing.Point(6, 153);
+            this.pnScroll.Location = new System.Drawing.Point(6, -165);
             this.pnScroll.Name = "pnScroll";
-            this.pnScroll.Size = new System.Drawing.Size(251, 539);
+            this.pnScroll.Size = new System.Drawing.Size(251, 635);
             this.pnScroll.TabIndex = 9;
             // 
             // groupBox3
@@ -358,8 +362,7 @@
             this.groupBox3.Controls.Add(this.txtValueEscala);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.btEscala);
             this.groupBox3.Controls.Add(this.slideEscala);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
@@ -373,17 +376,17 @@
             // 
             this.txtValueEscala.AutoSize = true;
             this.txtValueEscala.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValueEscala.Location = new System.Drawing.Point(116, 19);
+            this.txtValueEscala.Location = new System.Drawing.Point(54, 19);
             this.txtValueEscala.Name = "txtValueEscala";
             this.txtValueEscala.Size = new System.Drawing.Size(14, 16);
             this.txtValueEscala.TabIndex = 13;
-            this.txtValueEscala.Text = "0";
+            this.txtValueEscala.Text = "1";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 62);
+            this.label5.Location = new System.Drawing.Point(13, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(14, 16);
             this.label5.TabIndex = 12;
@@ -393,56 +396,48 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(217, 62);
+            this.label4.Location = new System.Drawing.Point(219, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 16);
+            this.label4.Size = new System.Drawing.Size(14, 16);
             this.label4.TabIndex = 11;
-            this.label4.Text = "100";
+            this.label4.Text = "5";
             // 
-            // label3
+            // btEscala
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "-100";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LimeGreen;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(6, 84);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(233, 27);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "OK";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btEscala.BackColor = System.Drawing.Color.LimeGreen;
+            this.btEscala.FlatAppearance.BorderSize = 0;
+            this.btEscala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEscala.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEscala.ForeColor = System.Drawing.Color.White;
+            this.btEscala.Location = new System.Drawing.Point(6, 84);
+            this.btEscala.Name = "btEscala";
+            this.btEscala.Size = new System.Drawing.Size(233, 27);
+            this.btEscala.TabIndex = 9;
+            this.btEscala.Text = "OK";
+            this.btEscala.UseVisualStyleBackColor = false;
+            this.btEscala.Click += new System.EventHandler(this.btEscala_Click);
             // 
             // slideEscala
             // 
             this.slideEscala.BackColor = System.Drawing.Color.White;
             this.slideEscala.LargeChange = 10;
             this.slideEscala.Location = new System.Drawing.Point(6, 36);
-            this.slideEscala.Maximum = 200;
+            this.slideEscala.Maximum = 50;
             this.slideEscala.Name = "slideEscala";
             this.slideEscala.Size = new System.Drawing.Size(233, 45);
             this.slideEscala.TabIndex = 10;
             this.slideEscala.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.slideEscala.Value = 100;
+            this.slideEscala.Value = 10;
             this.slideEscala.Scroll += new System.EventHandler(this.slideEscala_Scroll);
             // 
             // scrollBar
             // 
+            this.scrollBar.LargeChange = 20;
             this.scrollBar.Location = new System.Drawing.Point(260, 153);
-            this.scrollBar.Maximum = 223;
+            this.scrollBar.Maximum = 320;
             this.scrollBar.Name = "scrollBar";
             this.scrollBar.Size = new System.Drawing.Size(11, 320);
-            this.scrollBar.SmallChange = 5;
+            this.scrollBar.SmallChange = 10;
             this.scrollBar.TabIndex = 10;
             this.scrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBar_Scroll);
             // 
@@ -452,7 +447,7 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.btTranslacao);
             this.groupBox4.Controls.Add(this.slideTransalacao);
             this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(3, 129);
@@ -502,19 +497,20 @@
             this.label9.TabIndex = 9;
             this.label9.Text = "-100";
             // 
-            // button4
+            // btTranslacao
             // 
-            this.button4.BackColor = System.Drawing.Color.LimeGreen;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(6, 84);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(233, 27);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "OK";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btTranslacao.BackColor = System.Drawing.Color.LimeGreen;
+            this.btTranslacao.FlatAppearance.BorderSize = 0;
+            this.btTranslacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTranslacao.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTranslacao.ForeColor = System.Drawing.Color.White;
+            this.btTranslacao.Location = new System.Drawing.Point(6, 84);
+            this.btTranslacao.Name = "btTranslacao";
+            this.btTranslacao.Size = new System.Drawing.Size(233, 27);
+            this.btTranslacao.TabIndex = 9;
+            this.btTranslacao.Text = "OK";
+            this.btTranslacao.UseVisualStyleBackColor = false;
+            this.btTranslacao.Click += new System.EventHandler(this.btTranslacao_Click);
             // 
             // slideTransalacao
             // 
@@ -623,7 +619,7 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(57, 23);
             this.numericUpDown1.TabIndex = 10;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // button6
@@ -666,6 +662,7 @@
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(57, 23);
             this.numericUpDown2.TabIndex = 13;
+            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox6
             // 
@@ -800,6 +797,47 @@
             this.button12.Text = "Horizontal";
             this.button12.UseVisualStyleBackColor = false;
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.button1);
+            this.groupBox8.Controls.Add(this.btFlood);
+            this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(3, 540);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(245, 89);
+            this.groupBox8.TabIndex = 21;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Preenchimento";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LimeGreen;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(7, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(231, 27);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Scan Line";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btFlood
+            // 
+            this.btFlood.BackColor = System.Drawing.Color.LimeGreen;
+            this.btFlood.FlatAppearance.BorderSize = 0;
+            this.btFlood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFlood.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFlood.ForeColor = System.Drawing.Color.White;
+            this.btFlood.Location = new System.Drawing.Point(7, 22);
+            this.btFlood.Name = "btFlood";
+            this.btFlood.Size = new System.Drawing.Size(231, 27);
+            this.btFlood.TabIndex = 15;
+            this.btFlood.Text = "Flood Fill";
+            this.btFlood.UseVisualStyleBackColor = false;
+            this.btFlood.Click += new System.EventHandler(this.btFlood_Click);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -843,6 +881,7 @@
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.groupBox7.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -875,15 +914,14 @@
         private System.Windows.Forms.Label txtValueEscala;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btEscala;
         private System.Windows.Forms.TrackBar slideEscala;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label txtValueTranslacao;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btTranslacao;
         private System.Windows.Forms.TrackBar slideTransalacao;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListBox polist;
@@ -905,6 +943,9 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btFlood;
     }
 }
 
