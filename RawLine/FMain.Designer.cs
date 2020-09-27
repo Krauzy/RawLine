@@ -47,16 +47,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabIndex = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pnScroll = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtValueEscala = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btEscala = new System.Windows.Forms.Button();
-            this.slideEscala = new System.Windows.Forms.TrackBar();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.polist = new System.Windows.Forms.ListBox();
+            this.btCriaPoly = new System.Windows.Forms.Button();
+            this.btApagaPoly = new System.Windows.Forms.Button();
             this.scrollBar = new System.Windows.Forms.VScrollBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pnScroll = new System.Windows.Forms.Panel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btFlood = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btDiag = new System.Windows.Forms.Button();
+            this.btVert = new System.Windows.Forms.Button();
+            this.btHoriz = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.numAngle = new System.Windows.Forms.NumericUpDown();
+            this.btRotation = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.numY = new System.Windows.Forms.NumericUpDown();
+            this.btShearXY = new System.Windows.Forms.Button();
+            this.btShearY = new System.Windows.Forms.Button();
+            this.numX = new System.Windows.Forms.NumericUpDown();
+            this.btShearX = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtValueTranslacao = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,29 +77,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btTranslacao = new System.Windows.Forms.Button();
             this.slideTransalacao = new System.Windows.Forms.TrackBar();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.polist = new System.Windows.Forms.ListBox();
-            this.btApagaPoly = new System.Windows.Forms.Button();
-            this.btCriaPoly = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.button10 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btFlood = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtValueEscala = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btEscala = new System.Windows.Forms.Button();
+            this.slideEscala = new System.Windows.Forms.TrackBar();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.gbRetas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,20 +91,20 @@
             this.MenuStrip.SuspendLayout();
             this.tabIndex.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.pnScroll.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.slideEscala)).BeginInit();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAngle)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numX)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slideTransalacao)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slideEscala)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // picBox
@@ -318,117 +315,58 @@
             this.tabPage2.Text = "Polígonos";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // panel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(266, 16);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "___________________________________________";
+            this.panel2.Controls.Add(this.polist);
+            this.panel2.Controls.Add(this.btCriaPoly);
+            this.panel2.Controls.Add(this.btApagaPoly);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(271, 139);
+            this.panel2.TabIndex = 9;
             // 
-            // tabPage1
+            // polist
             // 
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.gbRetas);
-            this.tabPage1.Controls.Add(this.Graphs);
-            this.tabPage1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(277, 476);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Algoritmos";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.polist.ContextMenuStrip = this.MenuStrip;
+            this.polist.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.polist.FormattingEnabled = true;
+            this.polist.HorizontalScrollbar = true;
+            this.polist.ItemHeight = 17;
+            this.polist.Location = new System.Drawing.Point(3, 46);
+            this.polist.Name = "polist";
+            this.polist.Size = new System.Drawing.Size(265, 89);
+            this.polist.TabIndex = 13;
+            this.polist.SelectedIndexChanged += new System.EventHandler(this.polist_SelectedIndexChanged);
             // 
-            // pnScroll
+            // btCriaPoly
             // 
-            this.pnScroll.Controls.Add(this.groupBox8);
-            this.pnScroll.Controls.Add(this.groupBox7);
-            this.pnScroll.Controls.Add(this.groupBox6);
-            this.pnScroll.Controls.Add(this.groupBox5);
-            this.pnScroll.Controls.Add(this.groupBox4);
-            this.pnScroll.Controls.Add(this.groupBox3);
-            this.pnScroll.Location = new System.Drawing.Point(6, -165);
-            this.pnScroll.Name = "pnScroll";
-            this.pnScroll.Size = new System.Drawing.Size(251, 635);
-            this.pnScroll.TabIndex = 9;
+            this.btCriaPoly.BackColor = System.Drawing.Color.LimeGreen;
+            this.btCriaPoly.FlatAppearance.BorderSize = 0;
+            this.btCriaPoly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCriaPoly.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCriaPoly.ForeColor = System.Drawing.Color.White;
+            this.btCriaPoly.Location = new System.Drawing.Point(3, 3);
+            this.btCriaPoly.Name = "btCriaPoly";
+            this.btCriaPoly.Size = new System.Drawing.Size(130, 37);
+            this.btCriaPoly.TabIndex = 11;
+            this.btCriaPoly.Text = "Novo";
+            this.btCriaPoly.UseVisualStyleBackColor = false;
+            this.btCriaPoly.Click += new System.EventHandler(this.btCriaPoly_Click);
             // 
-            // groupBox3
+            // btApagaPoly
             // 
-            this.groupBox3.Controls.Add(this.txtValueEscala);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.btEscala);
-            this.groupBox3.Controls.Add(this.slideEscala);
-            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(245, 120);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Escala";
-            // 
-            // txtValueEscala
-            // 
-            this.txtValueEscala.AutoSize = true;
-            this.txtValueEscala.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValueEscala.Location = new System.Drawing.Point(54, 19);
-            this.txtValueEscala.Name = "txtValueEscala";
-            this.txtValueEscala.Size = new System.Drawing.Size(14, 16);
-            this.txtValueEscala.TabIndex = 13;
-            this.txtValueEscala.Text = "1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 60);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 16);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(219, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(14, 16);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "5";
-            // 
-            // btEscala
-            // 
-            this.btEscala.BackColor = System.Drawing.Color.LimeGreen;
-            this.btEscala.FlatAppearance.BorderSize = 0;
-            this.btEscala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btEscala.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEscala.ForeColor = System.Drawing.Color.White;
-            this.btEscala.Location = new System.Drawing.Point(6, 84);
-            this.btEscala.Name = "btEscala";
-            this.btEscala.Size = new System.Drawing.Size(233, 27);
-            this.btEscala.TabIndex = 9;
-            this.btEscala.Text = "OK";
-            this.btEscala.UseVisualStyleBackColor = false;
-            this.btEscala.Click += new System.EventHandler(this.btEscala_Click);
-            // 
-            // slideEscala
-            // 
-            this.slideEscala.BackColor = System.Drawing.Color.White;
-            this.slideEscala.LargeChange = 10;
-            this.slideEscala.Location = new System.Drawing.Point(6, 36);
-            this.slideEscala.Maximum = 50;
-            this.slideEscala.Name = "slideEscala";
-            this.slideEscala.Size = new System.Drawing.Size(233, 45);
-            this.slideEscala.TabIndex = 10;
-            this.slideEscala.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.slideEscala.Value = 10;
-            this.slideEscala.Scroll += new System.EventHandler(this.slideEscala_Scroll);
+            this.btApagaPoly.BackColor = System.Drawing.Color.Red;
+            this.btApagaPoly.FlatAppearance.BorderSize = 0;
+            this.btApagaPoly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btApagaPoly.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btApagaPoly.ForeColor = System.Drawing.Color.White;
+            this.btApagaPoly.Location = new System.Drawing.Point(138, 3);
+            this.btApagaPoly.Name = "btApagaPoly";
+            this.btApagaPoly.Size = new System.Drawing.Size(130, 37);
+            this.btApagaPoly.TabIndex = 12;
+            this.btApagaPoly.Text = "Apagar";
+            this.btApagaPoly.UseVisualStyleBackColor = false;
+            this.btApagaPoly.Click += new System.EventHandler(this.btApagaPoly_Click);
             // 
             // scrollBar
             // 
@@ -440,6 +378,259 @@
             this.scrollBar.SmallChange = 10;
             this.scrollBar.TabIndex = 10;
             this.scrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBar_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 134);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(266, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "___________________________________________";
+            // 
+            // pnScroll
+            // 
+            this.pnScroll.Controls.Add(this.groupBox8);
+            this.pnScroll.Controls.Add(this.groupBox7);
+            this.pnScroll.Controls.Add(this.groupBox6);
+            this.pnScroll.Controls.Add(this.groupBox5);
+            this.pnScroll.Controls.Add(this.groupBox4);
+            this.pnScroll.Controls.Add(this.groupBox3);
+            this.pnScroll.Location = new System.Drawing.Point(6, -155);
+            this.pnScroll.Name = "pnScroll";
+            this.pnScroll.Size = new System.Drawing.Size(251, 635);
+            this.pnScroll.TabIndex = 9;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.button1);
+            this.groupBox8.Controls.Add(this.btFlood);
+            this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(3, 540);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(245, 89);
+            this.groupBox8.TabIndex = 21;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Preenchimento";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LimeGreen;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(7, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(231, 27);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Scan Line";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btFlood
+            // 
+            this.btFlood.BackColor = System.Drawing.Color.LimeGreen;
+            this.btFlood.FlatAppearance.BorderSize = 0;
+            this.btFlood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFlood.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btFlood.ForeColor = System.Drawing.Color.White;
+            this.btFlood.Location = new System.Drawing.Point(7, 22);
+            this.btFlood.Name = "btFlood";
+            this.btFlood.Size = new System.Drawing.Size(231, 27);
+            this.btFlood.TabIndex = 15;
+            this.btFlood.Text = "Flood Fill";
+            this.btFlood.UseVisualStyleBackColor = false;
+            this.btFlood.Click += new System.EventHandler(this.btFlood_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.btDiag);
+            this.groupBox7.Controls.Add(this.btVert);
+            this.groupBox7.Controls.Add(this.btHoriz);
+            this.groupBox7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(3, 445);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(245, 89);
+            this.groupBox7.TabIndex = 20;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Espelhamento";
+            // 
+            // btDiag
+            // 
+            this.btDiag.BackColor = System.Drawing.Color.LimeGreen;
+            this.btDiag.FlatAppearance.BorderSize = 0;
+            this.btDiag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDiag.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDiag.ForeColor = System.Drawing.Color.White;
+            this.btDiag.Location = new System.Drawing.Point(7, 56);
+            this.btDiag.Name = "btDiag";
+            this.btDiag.Size = new System.Drawing.Size(231, 27);
+            this.btDiag.TabIndex = 16;
+            this.btDiag.Text = "Diagonal";
+            this.btDiag.UseVisualStyleBackColor = false;
+            this.btDiag.Click += new System.EventHandler(this.btDiag_Click);
+            // 
+            // btVert
+            // 
+            this.btVert.BackColor = System.Drawing.Color.LimeGreen;
+            this.btVert.FlatAppearance.BorderSize = 0;
+            this.btVert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btVert.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVert.ForeColor = System.Drawing.Color.White;
+            this.btVert.Location = new System.Drawing.Point(128, 22);
+            this.btVert.Name = "btVert";
+            this.btVert.Size = new System.Drawing.Size(110, 27);
+            this.btVert.TabIndex = 15;
+            this.btVert.Text = "Vertical";
+            this.btVert.UseVisualStyleBackColor = false;
+            this.btVert.Click += new System.EventHandler(this.btVert_Click);
+            // 
+            // btHoriz
+            // 
+            this.btHoriz.BackColor = System.Drawing.Color.LimeGreen;
+            this.btHoriz.FlatAppearance.BorderSize = 0;
+            this.btHoriz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btHoriz.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btHoriz.ForeColor = System.Drawing.Color.White;
+            this.btHoriz.Location = new System.Drawing.Point(6, 22);
+            this.btHoriz.Name = "btHoriz";
+            this.btHoriz.Size = new System.Drawing.Size(110, 27);
+            this.btHoriz.TabIndex = 14;
+            this.btHoriz.Text = "Horizontal";
+            this.btHoriz.UseVisualStyleBackColor = false;
+            this.btHoriz.Click += new System.EventHandler(this.btHoriz_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.numAngle);
+            this.groupBox6.Controls.Add(this.btRotation);
+            this.groupBox6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(3, 350);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(245, 89);
+            this.groupBox6.TabIndex = 19;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Rotação";
+            // 
+            // numAngle
+            // 
+            this.numAngle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numAngle.Location = new System.Drawing.Point(70, 26);
+            this.numAngle.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numAngle.Name = "numAngle";
+            this.numAngle.Size = new System.Drawing.Size(105, 23);
+            this.numAngle.TabIndex = 10;
+            this.numAngle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAngle.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // btRotation
+            // 
+            this.btRotation.BackColor = System.Drawing.Color.LimeGreen;
+            this.btRotation.FlatAppearance.BorderSize = 0;
+            this.btRotation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btRotation.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRotation.ForeColor = System.Drawing.Color.White;
+            this.btRotation.Location = new System.Drawing.Point(7, 55);
+            this.btRotation.Name = "btRotation";
+            this.btRotation.Size = new System.Drawing.Size(231, 27);
+            this.btRotation.TabIndex = 9;
+            this.btRotation.Text = "OK";
+            this.btRotation.UseVisualStyleBackColor = false;
+            this.btRotation.Click += new System.EventHandler(this.btRotation_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.numY);
+            this.groupBox5.Controls.Add(this.btShearXY);
+            this.groupBox5.Controls.Add(this.btShearY);
+            this.groupBox5.Controls.Add(this.numX);
+            this.groupBox5.Controls.Add(this.btShearX);
+            this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(3, 255);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(245, 89);
+            this.groupBox5.TabIndex = 17;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Cisalhamento";
+            // 
+            // numY
+            // 
+            this.numY.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numY.Location = new System.Drawing.Point(181, 26);
+            this.numY.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numY.Name = "numY";
+            this.numY.Size = new System.Drawing.Size(57, 23);
+            this.numY.TabIndex = 13;
+            this.numY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btShearXY
+            // 
+            this.btShearXY.BackColor = System.Drawing.Color.LimeGreen;
+            this.btShearXY.FlatAppearance.BorderSize = 0;
+            this.btShearXY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btShearXY.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShearXY.ForeColor = System.Drawing.Color.White;
+            this.btShearXY.Location = new System.Drawing.Point(70, 55);
+            this.btShearXY.Name = "btShearXY";
+            this.btShearXY.Size = new System.Drawing.Size(105, 27);
+            this.btShearXY.TabIndex = 12;
+            this.btShearXY.Text = "XY";
+            this.btShearXY.UseVisualStyleBackColor = false;
+            this.btShearXY.Click += new System.EventHandler(this.btShearXY_Click);
+            // 
+            // btShearY
+            // 
+            this.btShearY.BackColor = System.Drawing.Color.LimeGreen;
+            this.btShearY.FlatAppearance.BorderSize = 0;
+            this.btShearY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btShearY.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShearY.ForeColor = System.Drawing.Color.White;
+            this.btShearY.Location = new System.Drawing.Point(181, 55);
+            this.btShearY.Name = "btShearY";
+            this.btShearY.Size = new System.Drawing.Size(58, 27);
+            this.btShearY.TabIndex = 11;
+            this.btShearY.Text = "Y";
+            this.btShearY.UseVisualStyleBackColor = false;
+            this.btShearY.Click += new System.EventHandler(this.btShearY_Click);
+            // 
+            // numX
+            // 
+            this.numX.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numX.Location = new System.Drawing.Point(7, 26);
+            this.numX.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numX.Name = "numX";
+            this.numX.Size = new System.Drawing.Size(57, 23);
+            this.numX.TabIndex = 10;
+            this.numX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numX.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // btShearX
+            // 
+            this.btShearX.BackColor = System.Drawing.Color.LimeGreen;
+            this.btShearX.FlatAppearance.BorderSize = 0;
+            this.btShearX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btShearX.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShearX.ForeColor = System.Drawing.Color.White;
+            this.btShearX.Location = new System.Drawing.Point(6, 55);
+            this.btShearX.Name = "btShearX";
+            this.btShearX.Size = new System.Drawing.Size(58, 27);
+            this.btShearX.TabIndex = 9;
+            this.btShearX.Text = "X";
+            this.btShearX.UseVisualStyleBackColor = false;
+            this.btShearX.Click += new System.EventHandler(this.btShearX_Click);
             // 
             // groupBox4
             // 
@@ -525,318 +716,94 @@
             this.slideTransalacao.Value = 100;
             this.slideTransalacao.Scroll += new System.EventHandler(this.slideTransalacao_Scroll);
             // 
-            // panel2
+            // groupBox3
             // 
-            this.panel2.Controls.Add(this.polist);
-            this.panel2.Controls.Add(this.btCriaPoly);
-            this.panel2.Controls.Add(this.btApagaPoly);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(271, 139);
-            this.panel2.TabIndex = 9;
+            this.groupBox3.Controls.Add(this.txtValueEscala);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.btEscala);
+            this.groupBox3.Controls.Add(this.slideEscala);
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(245, 120);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Escala";
             // 
-            // polist
+            // txtValueEscala
             // 
-            this.polist.ContextMenuStrip = this.MenuStrip;
-            this.polist.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.polist.FormattingEnabled = true;
-            this.polist.HorizontalScrollbar = true;
-            this.polist.ItemHeight = 17;
-            this.polist.Location = new System.Drawing.Point(3, 46);
-            this.polist.Name = "polist";
-            this.polist.Size = new System.Drawing.Size(265, 89);
-            this.polist.TabIndex = 13;
-            this.polist.SelectedIndexChanged += new System.EventHandler(this.polist_SelectedIndexChanged);
+            this.txtValueEscala.AutoSize = true;
+            this.txtValueEscala.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValueEscala.Location = new System.Drawing.Point(54, 19);
+            this.txtValueEscala.Name = "txtValueEscala";
+            this.txtValueEscala.Size = new System.Drawing.Size(14, 16);
+            this.txtValueEscala.TabIndex = 13;
+            this.txtValueEscala.Text = "1";
             // 
-            // btApagaPoly
+            // label5
             // 
-            this.btApagaPoly.BackColor = System.Drawing.Color.Red;
-            this.btApagaPoly.FlatAppearance.BorderSize = 0;
-            this.btApagaPoly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btApagaPoly.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btApagaPoly.ForeColor = System.Drawing.Color.White;
-            this.btApagaPoly.Location = new System.Drawing.Point(138, 3);
-            this.btApagaPoly.Name = "btApagaPoly";
-            this.btApagaPoly.Size = new System.Drawing.Size(130, 37);
-            this.btApagaPoly.TabIndex = 12;
-            this.btApagaPoly.Text = "Apagar";
-            this.btApagaPoly.UseVisualStyleBackColor = false;
-            this.btApagaPoly.Click += new System.EventHandler(this.btApagaPoly_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(14, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "0";
             // 
-            // btCriaPoly
+            // label4
             // 
-            this.btCriaPoly.BackColor = System.Drawing.Color.LimeGreen;
-            this.btCriaPoly.FlatAppearance.BorderSize = 0;
-            this.btCriaPoly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCriaPoly.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCriaPoly.ForeColor = System.Drawing.Color.White;
-            this.btCriaPoly.Location = new System.Drawing.Point(3, 3);
-            this.btCriaPoly.Name = "btCriaPoly";
-            this.btCriaPoly.Size = new System.Drawing.Size(130, 37);
-            this.btCriaPoly.TabIndex = 11;
-            this.btCriaPoly.Text = "Novo";
-            this.btCriaPoly.UseVisualStyleBackColor = false;
-            this.btCriaPoly.Click += new System.EventHandler(this.btCriaPoly_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(219, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 16);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "5";
             // 
-            // groupBox5
+            // btEscala
             // 
-            this.groupBox5.Controls.Add(this.numericUpDown2);
-            this.groupBox5.Controls.Add(this.button7);
-            this.groupBox5.Controls.Add(this.button6);
-            this.groupBox5.Controls.Add(this.numericUpDown1);
-            this.groupBox5.Controls.Add(this.button5);
-            this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(3, 255);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(245, 89);
-            this.groupBox5.TabIndex = 17;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Cisalhamento";
+            this.btEscala.BackColor = System.Drawing.Color.LimeGreen;
+            this.btEscala.FlatAppearance.BorderSize = 0;
+            this.btEscala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEscala.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEscala.ForeColor = System.Drawing.Color.White;
+            this.btEscala.Location = new System.Drawing.Point(6, 84);
+            this.btEscala.Name = "btEscala";
+            this.btEscala.Size = new System.Drawing.Size(233, 27);
+            this.btEscala.TabIndex = 9;
+            this.btEscala.Text = "OK";
+            this.btEscala.UseVisualStyleBackColor = false;
+            this.btEscala.Click += new System.EventHandler(this.btEscala_Click);
             // 
-            // button5
+            // slideEscala
             // 
-            this.button5.BackColor = System.Drawing.Color.LimeGreen;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(6, 55);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(58, 27);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "X";
-            this.button5.UseVisualStyleBackColor = false;
+            this.slideEscala.BackColor = System.Drawing.Color.White;
+            this.slideEscala.LargeChange = 10;
+            this.slideEscala.Location = new System.Drawing.Point(6, 36);
+            this.slideEscala.Maximum = 50;
+            this.slideEscala.Name = "slideEscala";
+            this.slideEscala.Size = new System.Drawing.Size(233, 45);
+            this.slideEscala.TabIndex = 10;
+            this.slideEscala.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.slideEscala.Value = 10;
+            this.slideEscala.Scroll += new System.EventHandler(this.slideEscala_Scroll);
             // 
-            // numericUpDown1
+            // tabPage1
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(7, 26);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown1.TabIndex = 10;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.LimeGreen;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(181, 55);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(58, 27);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Y";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.LimeGreen;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(70, 55);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(105, 27);
-            this.button7.TabIndex = 12;
-            this.button7.Text = "XY";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(181, 26);
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown2.TabIndex = 13;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.button8);
-            this.groupBox6.Controls.Add(this.textBox2);
-            this.groupBox6.Controls.Add(this.textBox1);
-            this.groupBox6.Controls.Add(this.numericUpDown4);
-            this.groupBox6.Controls.Add(this.button10);
-            this.groupBox6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(3, 350);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(245, 89);
-            this.groupBox6.TabIndex = 19;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Rotação";
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown4.Location = new System.Drawing.Point(7, 26);
-            this.numericUpDown4.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(109, 23);
-            this.numericUpDown4.TabIndex = 10;
-            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown4.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.LimeGreen;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(7, 55);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(109, 27);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "OK";
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(146, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 23);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "X";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(195, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(43, 23);
-            this.textBox2.TabIndex = 12;
-            this.textBox2.Text = "Y";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.LimeGreen;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(146, 55);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(92, 27);
-            this.button8.TabIndex = 13;
-            this.button8.Text = "SET";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.button9);
-            this.groupBox7.Controls.Add(this.button11);
-            this.groupBox7.Controls.Add(this.button12);
-            this.groupBox7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(3, 445);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(245, 89);
-            this.groupBox7.TabIndex = 20;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Espelhamento";
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.LimeGreen;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(7, 56);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(231, 27);
-            this.button9.TabIndex = 16;
-            this.button9.Text = "Diagonal";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.LimeGreen;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(128, 22);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(110, 27);
-            this.button11.TabIndex = 15;
-            this.button11.Text = "Vertical";
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.LimeGreen;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(6, 22);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(110, 27);
-            this.button12.TabIndex = 14;
-            this.button12.Text = "Horizontal";
-            this.button12.UseVisualStyleBackColor = false;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.button1);
-            this.groupBox8.Controls.Add(this.btFlood);
-            this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(3, 540);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(245, 89);
-            this.groupBox8.TabIndex = 21;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Preenchimento";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(7, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 27);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Scan Line";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btFlood
-            // 
-            this.btFlood.BackColor = System.Drawing.Color.LimeGreen;
-            this.btFlood.FlatAppearance.BorderSize = 0;
-            this.btFlood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btFlood.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFlood.ForeColor = System.Drawing.Color.White;
-            this.btFlood.Location = new System.Drawing.Point(7, 22);
-            this.btFlood.Name = "btFlood";
-            this.btFlood.Size = new System.Drawing.Size(231, 27);
-            this.btFlood.TabIndex = 15;
-            this.btFlood.Text = "Flood Fill";
-            this.btFlood.UseVisualStyleBackColor = false;
-            this.btFlood.Click += new System.EventHandler(this.btFlood_Click);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.gbRetas);
+            this.tabPage1.Controls.Add(this.Graphs);
+            this.tabPage1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(277, 476);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Algoritmos";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // FMain
             // 
@@ -864,24 +831,23 @@
             this.tabIndex.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.pnScroll.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.slideEscala)).EndInit();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numAngle)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numX)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slideTransalacao)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slideEscala)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -928,21 +894,18 @@
         private System.Windows.Forms.Button btCriaPoly;
         private System.Windows.Forms.Button btApagaPoly;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btShearX;
+        private System.Windows.Forms.NumericUpDown numY;
+        private System.Windows.Forms.Button btShearXY;
+        private System.Windows.Forms.Button btShearY;
+        private System.Windows.Forms.NumericUpDown numX;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.NumericUpDown numAngle;
+        private System.Windows.Forms.Button btRotation;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btDiag;
+        private System.Windows.Forms.Button btVert;
+        private System.Windows.Forms.Button btHoriz;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btFlood;

@@ -55,6 +55,11 @@ namespace RawLine._2D
             return Color.FromArgb(p[0], p[1], p[2]);
         }
 
+        public Bitmap Erase(Bitmap img)
+        {
+            return this.ReDraw(img, Color.White);
+        }
+
         public Bitmap TerminatedPolygon(Bitmap img, Color cor)
         {
             img = DrawLine.DDA(img,
@@ -146,15 +151,51 @@ namespace RawLine._2D
             return img;
         }
 
+        public Bitmap MoveTo(Bitmap img, Color cor, int x, int y, bool signal = true)
+        {
+            img = this.Erase(img);
+            int desloc = (signal) ? 1 : -1;
+            double[][] M1 = new double[3][];
+            M1[0] = new double[3];
+            M1[1] = new double[3];
+            M1[2] = new double[3];
+            M1[0][0] = 1; M1[0][1] = 0; M1[0][2] = desloc;
+            M1[1][0] = 0; M1[1][1] = 1; M1[1][2] = desloc;
+            M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
+            //
+            while (this.GetSeed().X != x && this.GetSeed().Y != y)
+            {
+                for (int i = 0; i < this.vertices.Count; i++)
+                {
+                    double[] M2 = new double[3];
+                    M2[0] = this.vertices[i].X;
+                    M2[1] = this.vertices[i].Y;
+                    M2[2] = 1;
+                    double[] M = Matrix.Homogenar(M1, M2);
+                    this.vertices[i] = new Point((int)M[0], (int)M[1]);
+                }
+            }
+            return this.ReDraw(img, cor);
+        }
+
         public Bitmap Translation(Bitmap img, Color cor, int desloc)
         {
-            double[] M1 = new double[2];
-            double[] M2 = new double[2];
+            img = this.Erase(img);
+            double[][] M1 = new double[3][];
+            M1[0] = new double[3];
+            M1[1] = new double[3];
+            M1[2] = new double[3];
+            M1[0][0] = 1; M1[0][1] = 0; M1[0][2] = desloc;
+            M1[1][0] = 0; M1[1][1] = 1; M1[1][2] = desloc;
+            M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
+            //
             for(int i = 0; i < this.vertices.Count; i++)
             {
-                M1[0] = this.vertices[i].X; M1[1] = this.vertices[i].Y;
-                M2[0] = desloc; M2[1] = desloc;
-                double[] M = Matrix.SUM(M1, M2);
+                double[] M2 = new double[3];
+                M2[0] = this.vertices[i].X;
+                M2[1] = this.vertices[i].Y;
+                M2[2] = 1;
+                double[] M = Matrix.Homogenar(M1, M2);
                 this.vertices[i] = new Point((int)M[0], (int)M[1]);
             }
             return this.ReDraw(img, cor);
@@ -162,19 +203,93 @@ namespace RawLine._2D
 
         public Bitmap Scala(Bitmap img, Color cor, double scala)
         {
-            double[][] M1 = new double[2][];
-            M1[0] = new double[2];
-            M1[1] = new double[2];
-            double[] M2 = new double[2];
-            M1[0][0] = scala; M1[0][1] = 0;
-            M1[1][0] = 0; M1[1][1] = scala;
+            img = this.Erase(img);
+            double[][] M1 = new double[3][];
+            M1[0] = new double[3];
+            M1[1] = new double[3];
+            M1[2] = new double[3];
+            M1[0][0] = scala; M1[0][1] = 0; M1[0][2] = 0;
+            M1[1][0] = 0; M1[1][1] = scala; M1[1][2] = 0;
+            M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
+            //
             for (int i = 0; i < this.vertices.Count; i++)
             {
-                //M2[0] = this.vertices[i].X;
-                //M2[1] = this.vertices[i].Y;
-                //double[] M = Matrix.MULT(M1, M2);
-                //this.vertices[i] = new Point((int)M[0], (int)M[1]);
-                this.vertices[i] = new Point(Convert.ToInt32(this.vertices[i].X * scala), Convert.ToInt32(this.vertices[i].Y * scala));
+                double[] M2 = new double[3];
+                M2[0] = this.vertices[i].X;
+                M2[1] = this.vertices[i].Y;
+                M2[2] = 1;
+                double[] M = Matrix.Homogenar(M1, M2);
+                this.vertices[i] = new Point((int)M[0], (int)M[1]);
+            }
+            return this.ReDraw(img, cor);
+        }
+
+        public Bitmap Rotation(Bitmap img, Color cor, int angle)
+        {
+            img = this.Erase(img);
+            double[][] M1 = new double[3][];
+            M1[0] = new double[3];
+            M1[1] = new double[3];
+            M1[2] = new double[3];
+            M1[0][0] = Math.Cos(angle); M1[0][1] = -Math.Sin(angle); M1[0][2] = 0;
+            M1[1][0] = Math.Sin(angle); M1[1][1] = Math.Cos(angle); M1[1][2] = 0;
+            M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
+            //
+            //
+            for (int i = 0; i < this.vertices.Count; i++)
+            {
+                double[] M2 = new double[3];
+                M2[0] = this.vertices[i].X;
+                M2[1] = this.vertices[i].Y;
+                M2[2] = 1;
+                double[] M = Matrix.Homogenar(M1, M2);
+                this.vertices[i] = new Point((int)M[0], (int)M[1]);
+            }
+            return this.ReDraw(img, cor);
+        }
+
+        public Bitmap Shear(Bitmap img, Color cor, int alfa, int beta)
+        {
+            img = this.Erase(img);
+            double[][] M1 = new double[3][];
+            M1[0] = new double[3];
+            M1[1] = new double[3];
+            M1[2] = new double[3];
+            M1[0][0] = 1; M1[0][1] = beta; M1[0][2] = 0;
+            M1[1][0] = alfa; M1[1][1] = 1; M1[1][2] = 0;
+            M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
+            //
+            for (int i = 0; i < this.vertices.Count; i++)
+            {
+                double[] M2 = new double[3];
+                M2[0] = this.vertices[i].X;
+                M2[1] = this.vertices[i].Y;
+                M2[2] = 1;
+                double[] M = Matrix.Homogenar(M1, M2);
+                this.vertices[i] = new Point((int)M[0], (int)M[1]);
+            }
+            return this.ReDraw(img, cor);
+        }
+
+        public Bitmap Mirror(Bitmap img, Color cor, int flipx = 1, int flipy = 1)
+        {
+            img = this.Erase(img);
+            double[][] M1 = new double[3][];
+            M1[0] = new double[3];
+            M1[1] = new double[3];
+            M1[2] = new double[3];
+            M1[0][0] = flipy; M1[0][1] = 0; M1[0][2] = 0;
+            M1[1][0] = 0; M1[1][1] = flipx; M1[1][2] = 0;
+            M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
+            //
+            for(int i = 0; i < this.vertices.Count; i++)
+            {
+                double[] M2 = new double[3];
+                M2[0] = this.vertices[i].X;
+                M2[1] = this.vertices[i].Y;
+                M2[2] = 1;
+                double[] M = Matrix.Homogenar(M1, M2);
+                this.vertices[i] = new Point((int)M[0], (int)M[1]);
             }
             return this.ReDraw(img, cor);
         }

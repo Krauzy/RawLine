@@ -17,6 +17,7 @@ namespace RawLine
         private bool polyflag;
         private bool polyfirst;
         private Polygon poly;
+        private Point centro;
 
         public FMain()
         {
@@ -26,7 +27,7 @@ namespace RawLine
             g.Clear(Color.White);
             img = b;
             picBox.Image = img;
-            picBox.SizeMode = PictureBoxSizeMode.Zoom;
+            picBox.SizeMode = PictureBoxSizeMode.Normal;
             //
             flag = false;
             polyflag = false;
@@ -307,6 +308,7 @@ namespace RawLine
                 foreach (var item in polys)
                     img = item.ReDraw((Bitmap)img, Color.Black);
                 img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.Blue);
+                centro = polys[polist.SelectedIndex].GetSeed();
                 picBox.Image = img;
             }
         }
@@ -342,18 +344,9 @@ namespace RawLine
             if(polist.SelectedItems.Count > 0)
             {
                 double value = (double)slideEscala.Value / 10;
-                /*
-                img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
-                int desloc;
-                if (value >= 1)
-                    desloc = (int)value * -25;
-                else
-                    desloc = Convert.ToInt32((value + 1) * 100);
-                MessageBox.Show(desloc + "");
-                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue,  desloc);
-                */
-                img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Scala((Bitmap)img, Color.Blue, value);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
                 picBox.Image = img;
             }
         }
@@ -363,8 +356,90 @@ namespace RawLine
             if(polist.SelectedItems.Count > 0)
             {
                 int value = slideTransalacao.Value - 100;
-                img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, value);
+                centro = polys[polist.SelectedIndex].GetSeed();
+                picBox.Image = img;
+            }
+        }
+
+        private void btRotation_Click(object sender, EventArgs e)
+        {
+            if(polist.SelectedItems.Count > 0)
+            {
+                int value = Convert.ToInt32(numAngle.Value);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Rotation((Bitmap)img, Color.Blue, value);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                picBox.Image = img;
+            }            
+        }
+
+        private void btShearX_Click(object sender, EventArgs e)
+        {
+            if(polist.SelectedItems.Count > 0)
+            {
+                int x = Convert.ToInt32(numX.Value);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, 0);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                picBox.Image = img;
+            }
+        }
+
+        private void btShearY_Click(object sender, EventArgs e)
+        {
+            if (polist.SelectedItems.Count > 0)
+            {
+                int y = Convert.ToInt32(numY.Value);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, 0, y);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                picBox.Image = img;
+            }
+        }
+
+        private void btShearXY_Click(object sender, EventArgs e)
+        {
+            if (polist.SelectedItems.Count > 0)
+            {
+                int x = Convert.ToInt32(numX.Value);
+                int y = Convert.ToInt32(numY.Value);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, y);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                picBox.Image = img;
+            }
+        }
+
+        private void btHoriz_Click(object sender, EventArgs e)
+        {
+            if (polist.SelectedItems.Count > 0)
+            {
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, 1);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                picBox.Image = img;
+            }
+        }
+
+        private void btVert_Click(object sender, EventArgs e)
+        {
+            if (polist.SelectedItems.Count > 0)
+            {
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, 1, -1);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                picBox.Image = img;
+            }
+        }
+
+        private void btDiag_Click(object sender, EventArgs e)
+        {
+            if (polist.SelectedItems.Count > 0)
+            {
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, -1);
+                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
                 picBox.Image = img;
             }
         }
