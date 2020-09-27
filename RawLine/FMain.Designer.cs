@@ -397,7 +397,7 @@
             this.pnScroll.Controls.Add(this.groupBox5);
             this.pnScroll.Controls.Add(this.groupBox4);
             this.pnScroll.Controls.Add(this.groupBox3);
-            this.pnScroll.Location = new System.Drawing.Point(6, -155);
+            this.pnScroll.Location = new System.Drawing.Point(6, 153);
             this.pnScroll.Name = "pnScroll";
             this.pnScroll.Size = new System.Drawing.Size(251, 635);
             this.pnScroll.TabIndex = 9;
