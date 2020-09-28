@@ -1,4 +1,5 @@
 ﻿using RawLine._2D;
+using RawLine.Tools;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -440,6 +441,16 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, -1);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                picBox.Image = img;
+            }
+        }
+
+        private void btScan_Click(object sender, EventArgs e)
+        {
+            if(polist.SelectedItems.Count > 0)
+            {
+                ScanLine scan = new ScanLine(polys[polist.SelectedIndex]);
+                img = scan.Fill(Color.DarkGreen, (Bitmap)img);
                 picBox.Image = img;
             }
         }

@@ -25,7 +25,7 @@ namespace RawLine._2D
             this.vertices.Add(new Point(x, y));
         }
 
-        private void SetPixel(int x, int y, Color cor, BitmapData data)
+        public void SetPixel(int x, int y, Color cor, BitmapData data)
         {
             int stride = data.Stride;
             unsafe
@@ -39,7 +39,7 @@ namespace RawLine._2D
             }
         }
 
-        private Color GetPixel(int x, int y, BitmapData data)
+        public Color GetPixel(int x, int y, BitmapData data)
         {
             int stride = data.Stride;
             int[] p = new int[3];

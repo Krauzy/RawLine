@@ -55,7 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pnScroll = new System.Windows.Forms.Panel();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btScan = new System.Windows.Forms.Button();
             this.btFlood = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btDiag = new System.Windows.Forms.Button();
@@ -397,14 +397,14 @@
             this.pnScroll.Controls.Add(this.groupBox5);
             this.pnScroll.Controls.Add(this.groupBox4);
             this.pnScroll.Controls.Add(this.groupBox3);
-            this.pnScroll.Location = new System.Drawing.Point(6, 153);
+            this.pnScroll.Location = new System.Drawing.Point(6, -162);
             this.pnScroll.Name = "pnScroll";
             this.pnScroll.Size = new System.Drawing.Size(251, 635);
             this.pnScroll.TabIndex = 9;
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.button1);
+            this.groupBox8.Controls.Add(this.btScan);
             this.groupBox8.Controls.Add(this.btFlood);
             this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(3, 540);
@@ -414,19 +414,20 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Preenchimento";
             // 
-            // button1
+            // btScan
             // 
-            this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(7, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 27);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Scan Line";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btScan.BackColor = System.Drawing.Color.LimeGreen;
+            this.btScan.FlatAppearance.BorderSize = 0;
+            this.btScan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btScan.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btScan.ForeColor = System.Drawing.Color.White;
+            this.btScan.Location = new System.Drawing.Point(7, 56);
+            this.btScan.Name = "btScan";
+            this.btScan.Size = new System.Drawing.Size(231, 27);
+            this.btScan.TabIndex = 16;
+            this.btScan.Text = "Scan Line";
+            this.btScan.UseVisualStyleBackColor = false;
+            this.btScan.Click += new System.EventHandler(this.btScan_Click);
             // 
             // btFlood
             // 
@@ -907,7 +908,7 @@
         private System.Windows.Forms.Button btVert;
         private System.Windows.Forms.Button btHoriz;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btScan;
         private System.Windows.Forms.Button btFlood;
     }
 }
