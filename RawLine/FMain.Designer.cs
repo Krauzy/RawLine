@@ -84,6 +84,7 @@
             this.btEscala = new System.Windows.Forms.Button();
             this.slideEscala = new System.Windows.Forms.TrackBar();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.polysPoints = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.gbRetas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -317,6 +318,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.polysPoints);
             this.panel2.Controls.Add(this.polist);
             this.panel2.Controls.Add(this.btCriaPoly);
             this.panel2.Controls.Add(this.btApagaPoly);
@@ -334,7 +336,7 @@
             this.polist.ItemHeight = 17;
             this.polist.Location = new System.Drawing.Point(3, 46);
             this.polist.Name = "polist";
-            this.polist.Size = new System.Drawing.Size(265, 89);
+            this.polist.Size = new System.Drawing.Size(178, 89);
             this.polist.TabIndex = 13;
             this.polist.SelectedIndexChanged += new System.EventHandler(this.polist_SelectedIndexChanged);
             // 
@@ -806,6 +808,17 @@
             this.tabPage1.Text = "Algoritmos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // polysPoints
+            // 
+            this.polysPoints.ContextMenuStrip = this.MenuStrip;
+            this.polysPoints.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.polysPoints.FormattingEnabled = true;
+            this.polysPoints.ItemHeight = 17;
+            this.polysPoints.Location = new System.Drawing.Point(187, 46);
+            this.polysPoints.Name = "polysPoints";
+            this.polysPoints.Size = new System.Drawing.Size(81, 89);
+            this.polysPoints.TabIndex = 14;
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -910,6 +923,7 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button btScan;
         private System.Windows.Forms.Button btFlood;
+        private System.Windows.Forms.ListBox polysPoints;
     }
 }
 

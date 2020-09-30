@@ -98,7 +98,6 @@ namespace RawLine.Tools
                 {
                     inc = 1;
                 }
-
                 Aresta arr = new Aresta(maxY, minX, inc);
                 this.ET[minY].Add(arr);
             }
@@ -123,6 +122,10 @@ namespace RawLine.Tools
                 dy = maxY - minY;
                 inc = dx / dy;
                 //
+                if (double.IsInfinity(inc))
+                {
+                    inc = 1;
+                }
                 Aresta arr = new Aresta(maxY, minX, inc);
                 this.ET[minY].Add(arr);
             }
@@ -150,8 +153,8 @@ namespace RawLine.Tools
                     {
                         arr1 = this.AET[i];
                         arr2 = this.AET[i + 1];
-                        for (int x = arr1.MinX; x < arr2.MinX; x++)
-                            this.SetPixel(x, y, cor, data);
+                        for (double x = arr1.MinX; x < arr2.MinX; x++)
+                            this.SetPixel((int)x, y, cor, data);
                     }
                     this.AttX();
                     y++;

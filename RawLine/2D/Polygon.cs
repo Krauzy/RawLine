@@ -296,7 +296,7 @@ namespace RawLine._2D
 
         public override string ToString()
         {
-            return this.GetHashCode() + " - " + this.vertices.Count + " lados";
+            return this.GetHashCode() + " - " + this.vertices.Count + " vértices";
         }
 
     }

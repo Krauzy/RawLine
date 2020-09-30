@@ -40,6 +40,13 @@ namespace RawLine
             pnScroll.Location = new Point(pnScroll.Location.X, 155);
         }
 
+        private void RebuilPointsList(Polygon poly)
+        {
+            polysPoints.Items.Clear();
+            foreach(Point p in poly.Vertices)
+                polysPoints.Items.Add("(" + p.X + ", " + p.Y + ")");
+        }
+
         private void CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rd = (RadioButton)sender;
@@ -110,7 +117,6 @@ namespace RawLine
             if(e.Button == MouseButtons.Right)
             {
                 img = poly.ReDraw((Bitmap)img, Color.Black);
-                MessageBox.Show("" + poly.GetSeed());
                 picBox.Image = img;
                 polys.Add(poly);
                 polist.Items.Add(poly);
@@ -321,6 +327,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
                 polys.RemoveAt(polist.SelectedIndex);
                 polist.Items.Clear();
+                polysPoints.Items.Clear();
                 foreach (var item in polys)
                 {
                     img = item.ReDraw((Bitmap)img, Color.Black);
@@ -348,6 +355,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Scala((Bitmap)img, Color.Blue, value);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -359,6 +367,7 @@ namespace RawLine
                 int value = slideTransalacao.Value - 100;
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, value);
                 centro = polys[polist.SelectedIndex].GetSeed();
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -371,6 +380,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Rotation((Bitmap)img, Color.Blue, value);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }            
         }
@@ -383,6 +393,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, 0);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -395,6 +406,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, 0, y);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -408,6 +420,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, y);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -419,6 +432,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, 1);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -430,6 +444,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, 1, -1);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -441,6 +456,7 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, -1);
                 img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
