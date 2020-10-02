@@ -151,29 +151,25 @@ namespace RawLine._2D
             return img;
         }
 
-        public Bitmap MoveTo(Bitmap img, Color cor, int x, int y, bool signal = true)
+        public Bitmap Translation(Bitmap img, Color cor, Point p)
         {
             img = this.Erase(img);
-            int desloc = (signal) ? 1 : -1;
             double[][] M1 = new double[3][];
             M1[0] = new double[3];
             M1[1] = new double[3];
             M1[2] = new double[3];
-            M1[0][0] = 1; M1[0][1] = 0; M1[0][2] = desloc;
-            M1[1][0] = 0; M1[1][1] = 1; M1[1][2] = desloc;
+            M1[0][0] = 1; M1[0][1] = 0; M1[0][2] = p.X;
+            M1[1][0] = 0; M1[1][1] = 1; M1[1][2] = p.Y;
             M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
             //
-            while (this.GetSeed().X != x && this.GetSeed().Y != y)
+            for (int i = 0; i < this.vertices.Count; i++)
             {
-                for (int i = 0; i < this.vertices.Count; i++)
-                {
-                    double[] M2 = new double[3];
-                    M2[0] = this.vertices[i].X;
-                    M2[1] = this.vertices[i].Y;
-                    M2[2] = 1;
-                    double[] M = Matrix.Homogenar(M1, M2);
-                    this.vertices[i] = new Point((int)M[0], (int)M[1]);
-                }
+                double[] M2 = new double[3];
+                M2[0] = this.vertices[i].X;
+                M2[1] = this.vertices[i].Y;
+                M2[2] = 1;
+                double[] M = Matrix.Homogenar(M1, M2);
+                this.vertices[i] = new Point((int)M[0], (int)M[1]);
             }
             return this.ReDraw(img, cor);
         }
@@ -203,6 +199,9 @@ namespace RawLine._2D
 
         public Bitmap Scala(Bitmap img, Color cor, double scala)
         {
+            //Point p = this.GetSeed();
+            //int x = p.X;
+            //int y = p.Y;
             img = this.Erase(img);
             double[][] M1 = new double[3][];
             M1[0] = new double[3];
@@ -218,6 +217,7 @@ namespace RawLine._2D
                 M2[0] = this.vertices[i].X;
                 M2[1] = this.vertices[i].Y;
                 M2[2] = 1;
+                //double[][] Acumulada = Matrix.GetMatrizAcumulado(this.getTranslation(x, y), M1, this.getTranslation(-x, -y));
                 double[] M = Matrix.Homogenar(M1, M2);
                 this.vertices[i] = new Point((int)M[0], (int)M[1]);
             }

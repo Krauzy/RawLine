@@ -48,6 +48,7 @@
             this.tabIndex = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.polysPoints = new System.Windows.Forms.ListBox();
             this.polist = new System.Windows.Forms.ListBox();
             this.btCriaPoly = new System.Windows.Forms.Button();
             this.btApagaPoly = new System.Windows.Forms.Button();
@@ -84,7 +85,6 @@
             this.btEscala = new System.Windows.Forms.Button();
             this.slideEscala = new System.Windows.Forms.TrackBar();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.polysPoints = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.gbRetas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -326,6 +326,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(271, 139);
             this.panel2.TabIndex = 9;
+            // 
+            // polysPoints
+            // 
+            this.polysPoints.ContextMenuStrip = this.MenuStrip;
+            this.polysPoints.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.polysPoints.FormattingEnabled = true;
+            this.polysPoints.ItemHeight = 17;
+            this.polysPoints.Location = new System.Drawing.Point(187, 46);
+            this.polysPoints.Name = "polysPoints";
+            this.polysPoints.Size = new System.Drawing.Size(81, 89);
+            this.polysPoints.TabIndex = 14;
             // 
             // polist
             // 
@@ -807,17 +818,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Algoritmos";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // polysPoints
-            // 
-            this.polysPoints.ContextMenuStrip = this.MenuStrip;
-            this.polysPoints.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.polysPoints.FormattingEnabled = true;
-            this.polysPoints.ItemHeight = 17;
-            this.polysPoints.Location = new System.Drawing.Point(187, 46);
-            this.polysPoints.Name = "polysPoints";
-            this.polysPoints.Size = new System.Drawing.Size(81, 89);
-            this.polysPoints.TabIndex = 14;
             // 
             // FMain
             // 

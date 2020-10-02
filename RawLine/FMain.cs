@@ -316,6 +316,7 @@ namespace RawLine
                     img = item.ReDraw((Bitmap)img, Color.Black);
                 img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.Blue);
                 centro = polys[polist.SelectedIndex].GetSeed();
+                RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
         }
@@ -334,7 +335,6 @@ namespace RawLine
                     polist.Items.Add(item);
                 }
                 picBox.Image = img;
-
             }
         }
 
@@ -352,9 +352,9 @@ namespace RawLine
             if(polist.SelectedItems.Count > 0)
             {
                 double value = (double)slideEscala.Value / 10;
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Scala((Bitmap)img, Color.Blue, value);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
@@ -377,9 +377,9 @@ namespace RawLine
             if(polist.SelectedItems.Count > 0)
             {
                 int value = Convert.ToInt32(numAngle.Value);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Rotation((Bitmap)img, Color.Blue, value);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }            
@@ -390,9 +390,9 @@ namespace RawLine
             if(polist.SelectedItems.Count > 0)
             {
                 int x = Convert.ToInt32(numX.Value);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, 0);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
@@ -403,9 +403,9 @@ namespace RawLine
             if (polist.SelectedItems.Count > 0)
             {
                 int y = Convert.ToInt32(numY.Value);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, 0, y);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
@@ -417,9 +417,9 @@ namespace RawLine
             {
                 int x = Convert.ToInt32(numX.Value);
                 int y = Convert.ToInt32(numY.Value);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, y);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
@@ -429,9 +429,9 @@ namespace RawLine
         {
             if (polist.SelectedItems.Count > 0)
             {
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, 1);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
@@ -441,9 +441,9 @@ namespace RawLine
         {
             if (polist.SelectedItems.Count > 0)
             {
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, 1, -1);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
@@ -453,9 +453,9 @@ namespace RawLine
         {
             if (polist.SelectedItems.Count > 0)
             {
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, 0, 0, false);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, -1);
-                img = polys[polist.SelectedIndex].MoveTo((Bitmap)img, Color.Blue, centro.X, centro.Y, true);
+                img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
             }
