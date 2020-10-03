@@ -85,6 +85,7 @@
             this.btEscala = new System.Windows.Forms.Button();
             this.slideEscala = new System.Windows.Forms.TrackBar();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ViewPort = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.gbRetas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,6 +107,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slideEscala)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ViewPort)).BeginInit();
             this.SuspendLayout();
             // 
             // picBox
@@ -114,7 +116,7 @@
             this.picBox.Cursor = System.Windows.Forms.Cursors.Cross;
             this.picBox.Location = new System.Drawing.Point(12, 12);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(631, 505);
+            this.picBox.Size = new System.Drawing.Size(630, 505);
             this.picBox.TabIndex = 0;
             this.picBox.TabStop = false;
             this.picBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picBox_MouseDown);
@@ -299,7 +301,7 @@
             this.tabIndex.Location = new System.Drawing.Point(649, 12);
             this.tabIndex.Name = "tabIndex";
             this.tabIndex.SelectedIndex = 0;
-            this.tabIndex.Size = new System.Drawing.Size(285, 505);
+            this.tabIndex.Size = new System.Drawing.Size(285, 390);
             this.tabIndex.TabIndex = 8;
             // 
             // tabPage2
@@ -311,7 +313,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(277, 476);
+            this.tabPage2.Size = new System.Drawing.Size(277, 361);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Polígonos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -384,10 +386,10 @@
             // scrollBar
             // 
             this.scrollBar.LargeChange = 20;
-            this.scrollBar.Location = new System.Drawing.Point(260, 153);
-            this.scrollBar.Maximum = 320;
+            this.scrollBar.Location = new System.Drawing.Point(257, 153);
+            this.scrollBar.Maximum = 445;
             this.scrollBar.Name = "scrollBar";
-            this.scrollBar.Size = new System.Drawing.Size(11, 320);
+            this.scrollBar.Size = new System.Drawing.Size(15, 201);
             this.scrollBar.SmallChange = 10;
             this.scrollBar.TabIndex = 10;
             this.scrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrollBar_Scroll);
@@ -404,15 +406,15 @@
             // 
             // pnScroll
             // 
-            this.pnScroll.Controls.Add(this.groupBox8);
             this.pnScroll.Controls.Add(this.groupBox7);
             this.pnScroll.Controls.Add(this.groupBox6);
             this.pnScroll.Controls.Add(this.groupBox5);
             this.pnScroll.Controls.Add(this.groupBox4);
             this.pnScroll.Controls.Add(this.groupBox3);
-            this.pnScroll.Location = new System.Drawing.Point(6, -162);
+            this.pnScroll.Controls.Add(this.groupBox8);
+            this.pnScroll.Location = new System.Drawing.Point(6, -285);
             this.pnScroll.Name = "pnScroll";
-            this.pnScroll.Size = new System.Drawing.Size(251, 635);
+            this.pnScroll.Size = new System.Drawing.Size(251, 637);
             this.pnScroll.TabIndex = 9;
             // 
             // groupBox8
@@ -819,12 +821,22 @@
             this.tabPage1.Text = "Algoritmos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // ViewPort
+            // 
+            this.ViewPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ViewPort.Location = new System.Drawing.Point(719, 408);
+            this.ViewPort.Name = "ViewPort";
+            this.ViewPort.Size = new System.Drawing.Size(143, 109);
+            this.ViewPort.TabIndex = 0;
+            this.ViewPort.TabStop = false;
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(946, 528);
+            this.Controls.Add(this.ViewPort);
             this.Controls.Add(this.tabIndex);
             this.Controls.Add(this.picBox);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -862,6 +874,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.slideEscala)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ViewPort)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -924,6 +937,7 @@
         private System.Windows.Forms.Button btScan;
         private System.Windows.Forms.Button btFlood;
         private System.Windows.Forms.ListBox polysPoints;
+        private System.Windows.Forms.PictureBox ViewPort;
     }
 }
 

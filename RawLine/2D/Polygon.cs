@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace RawLine._2D
 {
@@ -107,18 +108,6 @@ namespace RawLine._2D
             return new Point((int)xmed, (int)ymed);
         }
 
-        public Bitmap ScanLine(Bitmap img, Color cor)
-        {
-            BitmapData DataSrc = img.LockBits(new Rectangle(0, 0, img.Width, img.Height), 
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-            unsafe
-            {
-
-            }
-            img.UnlockBits(DataSrc);
-            return img;
-        }
-
         public Bitmap FloodFill(Bitmap img, Color borda, Color inside)
         {
             int width = img.Width;
@@ -199,9 +188,6 @@ namespace RawLine._2D
 
         public Bitmap Scala(Bitmap img, Color cor, double scala)
         {
-            //Point p = this.GetSeed();
-            //int x = p.X;
-            //int y = p.Y;
             img = this.Erase(img);
             double[][] M1 = new double[3][];
             M1[0] = new double[3];
@@ -217,7 +203,29 @@ namespace RawLine._2D
                 M2[0] = this.vertices[i].X;
                 M2[1] = this.vertices[i].Y;
                 M2[2] = 1;
-                //double[][] Acumulada = Matrix.GetMatrizAcumulado(this.getTranslation(x, y), M1, this.getTranslation(-x, -y));
+                double[] M = Matrix.Homogenar(M1, M2);
+                this.vertices[i] = new Point((int)M[0], (int)M[1]);
+            }
+            return this.ReDraw(img, cor);
+        }
+
+        public Bitmap Scala(Bitmap img, Color cor, double x, double y)
+        {
+            img = this.Erase(img);
+            double[][] M1 = new double[3][];
+            M1[0] = new double[3];
+            M1[1] = new double[3];
+            M1[2] = new double[3];
+            M1[0][0] = x; M1[0][1] = 0; M1[0][2] = 0;
+            M1[1][0] = 0; M1[1][1] = y; M1[1][2] = 0;
+            M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
+            //
+            for (int i = 0; i < this.vertices.Count; i++)
+            {
+                double[] M2 = new double[3];
+                M2[0] = this.vertices[i].X;
+                M2[1] = this.vertices[i].Y;
+                M2[2] = 1;
                 double[] M = Matrix.Homogenar(M1, M2);
                 this.vertices[i] = new Point((int)M[0], (int)M[1]);
             }
@@ -234,7 +242,6 @@ namespace RawLine._2D
             M1[0][0] = Math.Cos(angle); M1[0][1] = -Math.Sin(angle); M1[0][2] = 0;
             M1[1][0] = Math.Sin(angle); M1[1][1] = Math.Cos(angle); M1[1][2] = 0;
             M1[2][0] = 0; M1[2][1] = 0; M1[2][2] = 1;
-            //
             //
             for (int i = 0; i < this.vertices.Count; i++)
             {
@@ -294,10 +301,34 @@ namespace RawLine._2D
             return this.ReDraw(img, cor);
         }
 
+        public Bitmap ViewPort(Bitmap img, Color cor, int width, int height, int _width, int _height)
+        { 
+            double porcx = Convert.ToDouble((double)_width / width);
+            double porcy = Convert.ToDouble((double)_height / height);
+            Point centro = this.GetSeed();
+            double X = (double)centro.X / width;
+            double Y = (double)centro.Y / height;
+            int centrox = (int)X * _width;
+            int centroy = (int)Y * _height;
+            img = this.Translation(img, cor, new Point(-centrox, -centroy));
+            img = this.Scala(img, cor, porcx, porcy);
+            img = this.Translation(img, cor, new Point(centrox, centroy));
+            return this.ReDraw(img, cor);
+        }
+
         public override string ToString()
         {
             return this.GetHashCode() + " - " + this.vertices.Count + " vértices";
         }
 
+        public Polygon GetClone()
+        {
+            Polygon p = new Polygon();
+            foreach(Point point in this.vertices)
+            {
+                p.AddVertice(point.X, point.Y);
+            }
+            return p;
+        }
     }
 }

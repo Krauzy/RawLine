@@ -15,10 +15,13 @@ namespace RawLine
         private bool flag;
         private List<Graph> List;
         private List<Polygon> polys;
+        private List<Polygon> VPs;
         private bool polyflag;
         private bool polyfirst;
         private Polygon poly;
         private Point centro;
+        private Point centroVP;
+        private Bitmap VP;
 
         public FMain()
         {
@@ -29,6 +32,9 @@ namespace RawLine
             img = b;
             picBox.Image = img;
             picBox.SizeMode = PictureBoxSizeMode.Normal;
+            VP = new Bitmap(ViewPort.Width, ViewPort.Height);
+            Graphics.FromImage(VP).Clear(Color.White);
+            ViewPort.Image = VP;
             //
             flag = false;
             polyflag = false;
@@ -36,6 +42,7 @@ namespace RawLine
             point = new Point(-1, -1);
             List = new List<Graph>();
             polys = new List<Polygon>();
+            VPs = new List<Polygon>();
             this.KeyPreview = true;
             pnScroll.Location = new Point(pnScroll.Location.X, 155);
         }
@@ -115,11 +122,15 @@ namespace RawLine
         private void picBox_MouseDown(object sender, MouseEventArgs e)
         {
             if(e.Button == MouseButtons.Right)
-            {
+            {                
                 img = poly.ReDraw((Bitmap)img, Color.Black);
                 picBox.Image = img;
                 polys.Add(poly);
                 polist.Items.Add(poly);
+                Polygon p = poly.GetClone();
+                VP = p.ViewPort(VP, Color.Black, img.Width, img.Height, VP.Width, VP.Height);
+                ViewPort.Image = VP;           
+                VPs.Add(p);
                 polyflag = false;
                 polyfirst = true;
             }
@@ -314,10 +325,15 @@ namespace RawLine
             {
                 foreach (var item in polys)
                     img = item.ReDraw((Bitmap)img, Color.Black);
+                foreach (var item in VPs)
+                    VP = item.ReDraw(VP, Color.Black);
                 img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.Blue);
+                VP = VPs[polist.SelectedIndex].ReDraw(VP, Color.Blue);
                 centro = polys[polist.SelectedIndex].GetSeed();
+                centroVP = VPs[polist.SelectedIndex].GetSeed();
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
+                ViewPort.Image = VP;
             }
         }
 
@@ -326,7 +342,9 @@ namespace RawLine
             if (polist.SelectedItems.Count == 1)
             {                
                 img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
+                VP = VPs[polist.SelectedIndex].ReDraw(VP, Color.White);
                 polys.RemoveAt(polist.SelectedIndex);
+                VPs.RemoveAt(polist.SelectedIndex);
                 polist.Items.Clear();
                 polysPoints.Items.Clear();
                 foreach (var item in polys)
@@ -334,7 +352,12 @@ namespace RawLine
                     img = item.ReDraw((Bitmap)img, Color.Black);
                     polist.Items.Add(item);
                 }
+                foreach (var item in VPs)
+                {
+                    VP = item.ReDraw(VP, Color.Black);
+                }
                 picBox.Image = img;
+                ViewPort.Image = VP;
             }
         }
 
@@ -343,7 +366,9 @@ namespace RawLine
             if(polist.SelectedItems.Count > 0)
             {
                 img = polys[polist.SelectedIndex].FloodFill((Bitmap)img, Color.Blue, Color.Orange);
+                VP = VPs[polist.SelectedIndex].FloodFill(VP, Color.Blue, Color.Orange);
                 picBox.Image = img;
+                ViewPort.Image = VP;
             }
         }
 
@@ -355,8 +380,13 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Scala((Bitmap)img, Color.Blue, value);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Scala(VP, Color.Blue, value);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
                 picBox.Image = img;
+                ViewPort.Image = VP;
             }
         }
 
@@ -368,7 +398,9 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, value);
                 centro = polys[polist.SelectedIndex].GetSeed();
                 RebuilPointsList(polys[polist.SelectedIndex]);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, value);
                 picBox.Image = img;
+                ViewPort.Image = VP;
             }
         }
 
@@ -380,8 +412,13 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(-centro.X, -centro.Y));
                 img = polys[polist.SelectedIndex].Rotation((Bitmap)img, Color.Blue, value);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Rotation(VP, Color.Blue, value);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
-                picBox.Image = img;
+                ViewPort.Image = VP;
+                picBox.Image = img;                
             }            
         }
 
@@ -394,6 +431,11 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, 0);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Shear(VP, Color.Blue, x, 0);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
+                ViewPort.Image = VP;
                 picBox.Image = img;
             }
         }
@@ -407,6 +449,11 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, 0, y);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Shear(VP, Color.Blue, 0, y);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
+                ViewPort.Image = VP;
                 picBox.Image = img;
             }
         }
@@ -421,6 +468,11 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Shear((Bitmap)img, Color.Blue, x, y);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Shear(VP, Color.Blue, x, y);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
+                ViewPort.Image = VP;
                 picBox.Image = img;
             }
         }
@@ -433,6 +485,11 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, 1);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Mirror(VP, Color.Blue, -1, 1);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
+                ViewPort.Image = VP;
                 picBox.Image = img;
             }
         }
@@ -445,6 +502,11 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, 1, -1);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Mirror(VP, Color.Blue, 1, -1);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
+                ViewPort.Image = VP;
                 picBox.Image = img;
             }
         }
@@ -457,6 +519,11 @@ namespace RawLine
                 img = polys[polist.SelectedIndex].Mirror((Bitmap)img, Color.Blue, -1, -1);
                 img = polys[polist.SelectedIndex].Translation((Bitmap)img, Color.Blue, new Point(centro.X, centro.Y));
                 RebuilPointsList(polys[polist.SelectedIndex]);
+                //
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(-centroVP.X, -centroVP.Y));
+                VP = VPs[polist.SelectedIndex].Mirror(VP, Color.Blue, -1, -1);
+                VP = VPs[polist.SelectedIndex].Translation(VP, Color.Blue, new Point(centroVP.X, centroVP.Y));
+                ViewPort.Image = VP;
                 picBox.Image = img;
             }
         }
@@ -468,6 +535,9 @@ namespace RawLine
                 ScanLine scan = new ScanLine(polys[polist.SelectedIndex]);
                 img = scan.Fill(Color.DarkGreen, (Bitmap)img);
                 picBox.Image = img;
+                ScanLine scanVP = new ScanLine(VPs[polist.SelectedIndex]);
+                VP = scanVP.Fill(Color.DarkGreen, VP);
+                ViewPort.Image = VP;
             }
         }
     }
