@@ -108,7 +108,7 @@ namespace RawLine._2D
             return new Point((int)xmed, (int)ymed);
         }
 
-        public Bitmap FloodFill(Bitmap img, Color borda, Color inside)
+        public Bitmap FloodFill(Bitmap img, Color inside)
         {
             int width = img.Width;
             int height = img.Height;

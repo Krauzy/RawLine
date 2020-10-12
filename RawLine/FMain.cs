@@ -340,24 +340,35 @@ namespace RawLine
         private void btApagaPoly_Click(object sender, EventArgs e)
         {
             if (polist.SelectedItems.Count == 1)
-            {                
-                img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
-                VP = VPs[polist.SelectedIndex].ReDraw(VP, Color.White);
-                polys.RemoveAt(polist.SelectedIndex);
-                VPs.RemoveAt(polist.SelectedIndex);
-                polist.Items.Clear();
-                polysPoints.Items.Clear();
-                foreach (var item in polys)
+            {   
+                try
                 {
-                    img = item.ReDraw((Bitmap)img, Color.Black);
-                    polist.Items.Add(item);
+                    img = polys[polist.SelectedIndex].ReDraw((Bitmap)img, Color.White);
+                    VP = VPs[polist.SelectedIndex].ReDraw(VP, Color.White);
+                    polys.RemoveAt(polist.SelectedIndex);
+                    VPs.RemoveAt(polist.SelectedIndex);
+                    polist.Items.Clear();
+                    polysPoints.Items.Clear();
+                    foreach (var item in polys)
+                    {
+                        img = item.ReDraw((Bitmap)img, Color.Black);
+                        polist.Items.Add(item);
+                    }
+                    foreach (var item in VPs)
+                    {
+                        VP = item.ReDraw(VP, Color.Black);
+                    }
+                    picBox.Image = img;
+                    ViewPort.Image = VP;
                 }
-                foreach (var item in VPs)
+                catch
                 {
-                    VP = item.ReDraw(VP, Color.Black);
+                    polys.RemoveRange(0, polys.Count - 1);
+                    Graphics.FromImage(img).Clear(Color.White);
+                    VPs.RemoveRange(0, VPs.Count - 1);
+                    Graphics.FromImage(VP).Clear(Color.White);
+                    ViewPort.Image = VP;
                 }
-                picBox.Image = img;
-                ViewPort.Image = VP;
             }
         }
 
@@ -365,8 +376,8 @@ namespace RawLine
         {
             if(polist.SelectedItems.Count > 0)
             {
-                img = polys[polist.SelectedIndex].FloodFill((Bitmap)img, Color.Blue, Color.Orange);
-                VP = VPs[polist.SelectedIndex].FloodFill(VP, Color.Blue, Color.Orange);
+                img = polys[polist.SelectedIndex].FloodFill((Bitmap)img, Color.Orange);
+                VP = VPs[polist.SelectedIndex].FloodFill(VP, Color.Orange);
                 picBox.Image = img;
                 ViewPort.Image = VP;
             }
